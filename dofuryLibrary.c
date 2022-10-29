@@ -1,7 +1,9 @@
 ﻿
 
 #include "utility.h"
-#include "title.h"
+#include "screen.h"
+#include "data.h"
+void mainInit();
 int main()
 {
     int select;
@@ -11,21 +13,67 @@ int main()
         titleDraw();
         select = keyDraw();
 		switch (select) {
-		case 2:
+		case eMenu_List:
 		{
-			return 0;
+
 
 		}break;
-		case 4:
+		case eMenu_Search:
 		{
 		}break;
-		case 6:
+		case eMenu_Add:
 		{
+			bookStart();
+
+		}break;
+		case eMenu_Return:
+		{
+
+		}break;
+		case eMenu_Reset:
+		{
+
+		}break;
+		case eMenu_Save:
+		{
+
 		}break;
 		}
     }
     while(1);
+	
 	//수정했습니다
+
+}
+void mainInit()
+{
+	Node* head = (Node*)malloc(sizeof(Node));
+	head->next = NULL;
+
+	Node* node1 = (Node*)malloc(sizeof(Node));
+	node1->next = head->next;
+	node1->book.author = "짱구";
+	node1->book.genre = "공포";
+	node1->book.title = "학교괴담";
+	head->next = node1;
+
+	Node* node2 = (Node*)malloc(sizeof(Node));
+	node2->next = node1->next;
+	node2->book.author = "짱아";
+	node2->book.genre = "로맨스";
+	node2->book.title = "호호";
+	node1->next = node2;
+
+	Node* curr = head->next;
+	while (curr != NULL)
+	{
+		printf("%s\n", curr->book.author);
+		curr = curr->next;
+	}
+
+	free(head);
+	free(node1);
+	free(node2);
 
 }
 

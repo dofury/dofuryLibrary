@@ -1,4 +1,5 @@
 #include "utility.h"
+#include "title.h"
 #define UP 1
 #define DOWN 2
 #define SUBMIT 3

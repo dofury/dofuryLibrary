@@ -24,12 +24,24 @@
     <ClCompile Include="title.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="bookAdd.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utility.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="title.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="data.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="bookAdd.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="screen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
