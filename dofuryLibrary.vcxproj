@@ -128,12 +128,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bookAdd.c" />
+    <ClCompile Include="bookList.c" />
+    <ClCompile Include="data.c" />
     <ClCompile Include="dofuryLibrary.c" />
     <ClCompile Include="title.c" />
     <ClCompile Include="utility.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bookAdd.h" />
+    <ClInclude Include="bookList.h" />
     <ClInclude Include="data.h" />
     <ClInclude Include="title.h" />
     <ClInclude Include="utility.h" />

@@ -1,11 +1,10 @@
 #pragma once
 #include "data.h"
-#define KEY_ENTER 13
-void bookDraw();
-void bookInit();
+void bAddDraw();
+void bAddInit();
 void titleAdd();
 void authorAdd();
 void genreAdd();
-void bookStart();
+void bAddStart();
 void getUserInput();
 Book book;

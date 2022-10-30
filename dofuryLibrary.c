@@ -1,11 +1,12 @@
 ﻿
-
 #include "utility.h"
 #include "screen.h"
 #include "data.h"
 void mainInit();
 int main()
 {
+	bookList = newList();
+	initList(bookList);
     int select;
     do
     {
@@ -15,7 +16,7 @@ int main()
 		switch (select) {
 		case eMenu_List:
 		{
-
+			bListStart();
 
 		}break;
 		case eMenu_Search:
@@ -23,7 +24,7 @@ int main()
 		}break;
 		case eMenu_Add:
 		{
-			bookStart();
+			bAddStart();
 
 		}break;
 		case eMenu_Return:
@@ -47,7 +48,7 @@ int main()
 }
 void mainInit()
 {
-	Node* head = (Node*)malloc(sizeof(Node));
+	/*Node* head = (Node*)malloc(sizeof(Node));
 	head->next = NULL;
 
 	Node* node1 = (Node*)malloc(sizeof(Node));
@@ -73,7 +74,7 @@ void mainInit()
 
 	free(head);
 	free(node1);
-	free(node2);
+	free(node2);*/
 
 }
 

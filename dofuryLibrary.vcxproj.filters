@@ -27,6 +27,12 @@
     <ClCompile Include="bookAdd.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="bookList.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="data.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="utility.h">
@@ -42,6 +48,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="screen.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="bookList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

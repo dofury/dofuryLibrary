@@ -8,3 +8,12 @@ void gotoxy(int x, int y)
 	pos.Y = y;
 	SetConsoleCursorPosition(consoleHandle, pos);
 }
+
+void getUserInput()
+{
+	int currentInput = 0;
+	while (currentInput != KEY_ENTER)
+	{
+		currentInput = _getch();
+	}
+}
