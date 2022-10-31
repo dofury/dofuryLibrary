@@ -25,7 +25,31 @@ void deleteBook(Book* book)
 {
 	free(book);
 }
+void clear(List* list)
+{
+	Node* node = list->head->next;
+	while (node != list->tail)
+	{
+		removeSet(list, node);
+		node = list->head->next;
+	}
+}
 
+void removeSet(List* list, Node* node)
+{
+	node->prev->next = node->next;
+	node->next->prev = node->prev;
+	deleteBook(node->book);
+	list->count--;
+}
+
+void deleteList(List* list)
+{
+	clear(list);
+	free(list->head);
+	free(list->tail);
+	free(list);
+}
 /*
 리스트에 book타입의 데이터의 주소를 넣고 동적으로 추가
 */

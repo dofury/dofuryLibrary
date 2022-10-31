@@ -7,7 +7,7 @@ typedef enum _eMenu {
 	eMenu_Reset = 10,
 	eMenu_Save = 12
 }eMenu;
-void titleDraw();
-void titleInit();
-int keyDraw();
-int keyControl();
+void ttDraw();
+void ttInit();
+int ttKeyDraw();
+int ttKeyControl();

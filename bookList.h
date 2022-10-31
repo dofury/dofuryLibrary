@@ -1,6 +1,9 @@
 #pragma once
 #include "data.h"
-void bListInit();
-void bListDraw();
-void bListShow();
-void bListStart();
+void blInit();
+void blDraw();
+void blShow();
+void blShows();
+void blStart();
+Node* blKeyDraw();
+int blKeyControl();

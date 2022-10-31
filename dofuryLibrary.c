@@ -3,20 +3,20 @@
 #include "screen.h"
 #include "data.h"
 void mainInit();
+void listCheck();
 int main()
 {
-	bookList = newList();
-	initList(bookList);
     int select;
     do
     {
-        titleInit();
-        titleDraw();
-        select = keyDraw();
+		listCheck();//리스트제거시 재생성
+        ttInit();
+        ttDraw();
+        select = ttKeyDraw();
 		switch (select) {
 		case eMenu_List:
 		{
-			bListStart();
+			blStart();
 
 		}break;
 		case eMenu_Search:
@@ -33,11 +33,11 @@ int main()
 		}break;
 		case eMenu_Reset:
 		{
-
+				clear(bookList);//리스트 초기화
 		}break;
 		case eMenu_Save:
-		{
-
+		{	
+				deleteList(bookList);//리스트제거
 		}break;
 		}
     }
@@ -77,7 +77,14 @@ void mainInit()
 	free(node2);*/
 
 }
-
+void listCheck()
+{
+	if (bookList == NULL)
+	{
+		bookList = newList();
+		initList(bookList);
+	}
+}
 
 // 프로그램 실행: <Ctrl+F5> 또는 [디버그] > [디버깅하지 않고 시작] 메뉴
 // 프로그램 디버그: <F5> 키 또는 [디버그] > [디버깅 시작] 메뉴llll

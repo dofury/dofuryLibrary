@@ -18,10 +18,13 @@ typedef struct _List {
 	int count;
 }List;
 
-List* bookList;
+List* bookList; 
 List* newList();
 void initList(List* list);
 void addBook(List* list, void* book);
+void deleteList(List* list);
+void removeSet(List* list, Node* node);
+void clear(List* list);
 Node* newNode(void* book);
 Book* newBook(char title[36], char author[36], char genre[36]);
 void deleteBook(Book* book);

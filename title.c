@@ -1,10 +1,7 @@
 #include "utility.h"
 #include "title.h"
-#define UP 1
-#define DOWN 2
-#define SUBMIT 3
 
-void titleInit()
+void ttInit()
 {
     system("mode con cols=120 lines=30 | title BOOK");
 
@@ -14,7 +11,7 @@ void titleInit()
     ConsoleCursor.dwSize = 1;//수정
     SetConsoleCursorInfo(consoleHandle, &ConsoleCursor);
 }
-void titleDraw()
+void ttDraw()
 {
     printf("               BOOK\n");
     printf("====================================\n");
@@ -32,7 +29,7 @@ void titleDraw()
     printf("====================================\n");
 }
 
-int keyDraw()
+int ttKeyDraw()
 {
 	x = 5;
 	y = 2;
@@ -49,9 +46,9 @@ int keyDraw()
 	gotoxy(x, y + 10);
 	printf("  6. 종료 & 저장\n");
 	while (1) {
-		int n = keyControl();
+		int n = ttKeyControl();
 		switch (n) {
-		case UP: {
+		case eUp: {
 			if (y > 2) {
 				gotoxy(x - 2, y);
 				printf("  ");
@@ -60,7 +57,7 @@ int keyDraw()
 			}
 			break;
 		}
-		case DOWN: {
+		case eDown: {
 			if (y < 12) {
 				gotoxy(x - 2, y);
 				printf("  ");
@@ -68,7 +65,7 @@ int keyDraw()
 				printf(">>");
 			}
 			break;
-		case SUBMIT: {
+		case eSubmit: {
 			gotoxy(20,10);
 			printf("%d", y);
 			return y;
@@ -79,7 +76,7 @@ int keyDraw()
 		}
 	}
 }
-int keyControl()
+int ttKeyControl()
 {
 	int temp;
 	temp = _getch();
@@ -87,13 +84,13 @@ int keyControl()
 	{
 		temp = _getch();
 		if (temp == 72) {
-			return UP;
+			return eUp;
 		}
 		else if (temp == 80) {
-			return DOWN;
+			return eDown;
 		}
 	}
 	else if (temp == 32) {
-		return SUBMIT;
+		return eSubmit;
 	}
 }
