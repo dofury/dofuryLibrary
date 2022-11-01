@@ -6,19 +6,103 @@ void blStart()
 {
 	Node* select;
 	select = blKeyDraw();
-	if (select != NULL)
+	if (select != NULL && bookList->count != 0)
 	{
-		Book* book = select->book;
-		system("cls");
-		printf("%s", book->title);
+		int menuSelect;
+		menuSelect = blsKeyDraw(select);
+		switch (menuSelect)
+		{
+			case eListMenu_Edit:
+				{
+					Book tempBook = inputBook();
+					editSet(select, tempBook);
+					break;
+				}
+			case eListMenu_Remove:
+				{
+					removeSet(bookList, select);
+					system("cls");
+					printf("삭제되었습니다! 뒤로가기: ENTER");
+					getUserInput();
+					break;
+				}
+			case eListMenu_Undo:
+				{
+					break;
+				}
+		}
 	}
 }
 void blInit()
 {
 
 }
+Book inputBook()
+{
+	Book book;
+	system("cls");
+	gotoxy(0, 1);
+	printf("책이름(한글 18자, 영어 36자 이내): ");
+	gets_s(book.title, 36);
+	system("cls");
+	gotoxy(0, 1);
+	printf("작가(한글 18자, 영어 36자 이내): ");
+	gets_s(book.author, 36);
+	system("cls");
+	gotoxy(0, 1);
+	printf("장르(한글 18자, 영어 36자 이내): ");
+	gets_s(book.genre, 36);
+
+	return book;
+}
+int blsKeyDraw(Node* present)
+{
+	system("cls");
+	printf("====================================\n");
+	blShow(present->book);
+	blsDraw();
+	x = 5;
+	y = 3;
+	while (1) {
+		int n = blKeyControl();
+		switch (n) {
+			case eUp: {
+					if (y > 4)
+					{
+						gotoxy(x - 2, y);
+						printf("  ");
+						gotoxy(x - 2, y -= 2);
+						printf(">>");
+					}
+					break;
+				}
+			case eDown: {
+					if (y < 7) {
+						gotoxy(x - 2, y);
+						printf("  ");
+						gotoxy(x - 2, y += 2);
+						printf(">>");
+					}
+					break;
+			case eSubmit: {
+					return y;
+				}
 
 
+				}
+		}
+	}
+}
+
+void blsDraw()
+{
+	printf("   >>  1.편집\n");
+	printf("====================================\n");
+	printf("       2.삭제\n");
+	printf("====================================\n");
+	printf("       3.메뉴\n");
+	printf("====================================\n");
+}
 Node* blKeyDraw()
 {
 	Node* present = bookList->head->next;
@@ -30,6 +114,11 @@ Node* blKeyDraw()
 	{
 		gotoxy(3, 1);
 		printf(">>");
+	}
+	else
+	{
+		printf("\n        등록된 책이 없습니다!!!\n\n");
+		printf("            뒤로가기:SPACE");
 	}
 	while (1) {
 		int n = blKeyControl();

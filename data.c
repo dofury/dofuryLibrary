@@ -43,6 +43,14 @@ void removeSet(List* list, Node* node)
 	list->count--;
 }
 
+void editSet(Node* node, Book afterBook)
+{
+	Book* beforeBook = node->book;
+	strcpy_s(beforeBook->title, sizeof(beforeBook->title), afterBook.title);
+	strcpy_s(beforeBook->author, sizeof(beforeBook->author), afterBook.author);
+	strcpy_s(beforeBook->genre, sizeof(beforeBook->genre), afterBook.genre);
+}
+
 void deleteList(List* list)
 {
 	clear(list);

@@ -11,8 +11,8 @@ void bAddStart()
 	titleAdd();
 	authorAdd();
 	genreAdd();
-	printf("추가되었습니다! 뒤로가기: ENTER");
 	addBook(bookList, newBook(book.title, book.author, book.genre));
+	printf("추가되었습니다! 뒤로가기: ENTER");
 	getUserInput();
 }
 

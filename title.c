@@ -66,8 +66,6 @@ int ttKeyDraw()
 			}
 			break;
 		case eSubmit: {
-			gotoxy(20,10);
-			printf("%d", y);
 			return y;
 		}
 
