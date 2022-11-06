@@ -21,6 +21,7 @@ int main()
 		}break;
 		case eMenu_Search:
 		{
+			bSearchStart();
 		}break;
 		case eMenu_Add:
 		{
