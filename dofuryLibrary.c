@@ -38,8 +38,10 @@ int main()
 		}break;
 		case eMenu_Save:
 		{	
+				clear(bookList);
 				deleteList(bookList);//리스트제거
-		}break;
+				return 0;
+		}
 		}
     }
     while(1);

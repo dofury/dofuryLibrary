@@ -1,34 +1,78 @@
 #include "bookSearch.h"
 
-Book* searchTitle(List* list,char title[36])
+void searchTitle(char title[36])
 {
-	Node* node = list->head->next; //head의 next부터 검색
+	Node* node = bookList->head->next; //head의 next부터 검색
 	Book* book = node->book;
-	while (node != list->tail)
+	while (node != bookList->tail)
 	{
 		if (strcmp(book->title, title) == 0)
 		{
-			return book;
+			addBook(searchList, newBook(book->title, book->author, book->genre));
 		}
 		node = node->next;
+		book = node->book;
 	}
-	return NULL;
+}
+
+void searchAuthor(char author[36])
+{
+	Node* node = bookList->head->next; //head의 next부터 검색
+	Book* book = node->book;
+	while (node != bookList->tail)
+	{
+		if (strcmp(book->author, author) == 0)
+		{
+			addBook(searchList, newBook(book->title, book->author, book->genre));
+		}
+		node = node->next;
+		book = node->book;
+	}
+}
+
+void searchGenre(char genre[36])
+{
+	Node* node = bookList->head->next; //head의 next부터 검색
+	Book* book = node->book;
+	while (node != bookList->tail)
+	{
+		if (strcmp(book->genre, genre) == 0)
+		{
+			addBook(searchList, newBook(book->title, book->author, book->genre));
+		}
+		node = node->next;
+		book = node->book;
+	}
+}
+
+
+void init()
+{
+	searchList = newList();
+	initList(searchList);
 }
 
 void searchTitleMessage()
 {
-	Book* book;
 	char title[36];
+	Node* node;
+	Book* book;
 	system("cls");
 	printf("=================검색===============\n");
-	printf("책이름(한글 18자, 영어 36자 이내): ");
+	printf("책 제목(한글 18자, 영어 36자 이내): ");
 	gets_s(title, 36);
-	book = searchTitle(bookList, title);
-	if (book != NULL)
+	searchTitle(title);
+	if (searchList->count != 0)
 	{
-		printf("====================================\n");
-		printf("책 이름: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
-		printf("====================================\n");
+		node = searchList->head->next; //head의 next부터 검색
+		for (int i = 0; i < searchList->count; i++)
+		{
+			book = node->book;
+			node = node->next;
+			printf("====================================\n");
+			printf("책 제목: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
+			printf("====================================\n");;
+		}
 		printf("검색 완료.\n\n");
 		printf("           확인:ENTER");
 		getUserInput();
@@ -39,8 +83,75 @@ void searchTitleMessage()
 		getUserInput();
 	}
 }
+
+void searchAuthorMessage()
+{
+	char author[36];
+	Node* node;
+	Book* book;
+	system("cls");
+	printf("=================검색===============\n");
+	printf("작가(한글 18자, 영어 36자 이내): ");
+	gets_s(author, 36);
+	searchAuthor(author);
+	if (searchList->count != 0)
+	{
+		node = searchList->head->next; //head의 next부터 검색
+		for (int i = 0; i < searchList->count; i++)
+		{
+			book = node->book;
+			node = node->next;
+			printf("====================================\n");
+			printf("책 제목: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
+			printf("====================================\n");;
+		}
+		printf("검색 완료.\n\n");
+		printf("           확인:ENTER");
+		getUserInput();
+	}
+	else
+	{
+		printf("책이 없습니다.");
+		getUserInput();
+	}
+}
+
+
+void searchGenreMessage()
+{
+	char genre[36];
+	Node* node;
+	Book* book;
+	system("cls");
+	printf("=================검색===============\n");
+	printf("장르(한글 18자, 영어 36자 이내): ");
+	gets_s(genre, 36);
+	searchGenre(genre);
+	if (searchList->count != 0)
+	{
+		node = searchList->head->next; //head의 next부터 검색
+		for (int i = 0; i < searchList->count; i++)
+		{
+			book = node->book;
+			node = node->next;
+			printf("====================================\n");
+			printf("책 제목: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
+			printf("====================================\n");;
+		}
+		printf("검색 완료.\n\n");
+		printf("           확인:ENTER");
+		getUserInput();
+	}
+	else
+	{
+		printf("책이 없습니다.");
+		getUserInput();
+	}
+}
+
 void bSearchStart()
 {
+	init();
 	bSearchDraw();
 	int menuSelect;
 	menuSelect = bSearchsKeyDraw();
@@ -53,10 +164,12 @@ void bSearchStart()
 		}
 		case eAuthorSearch:
 		{
+			searchAuthorMessage();
 			break;
 		}
 		case eGenreSearch:
 		{
+			searchGenreMessage();
 			break;
 		}
 		case eSearchUndo:
@@ -64,6 +177,8 @@ void bSearchStart()
 			break;
 		}
 	}
+	clear(searchList);
+	deleteList(searchList);
 }
 
 void bSearchDraw()
