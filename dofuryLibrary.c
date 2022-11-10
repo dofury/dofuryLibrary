@@ -21,16 +21,16 @@ int main()
 		}break;
 		case eMenu_Search:
 		{
-			bSearchStart();
+			bsStart();
 		}break;
 		case eMenu_Add:
 		{
 			bAddStart();
 
 		}break;
-		case eMenu_Return:
+		case eMenu_Take:
 		{
-
+			btStart();
 		}break;
 		case eMenu_Reset:
 		{

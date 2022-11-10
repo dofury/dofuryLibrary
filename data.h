@@ -4,6 +4,7 @@ typedef struct _Book {
 	char title[36];
 	char author[36];
 	char genre[36];
+	int take;
 }Book;
 
 typedef struct _Node {

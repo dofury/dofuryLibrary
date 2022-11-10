@@ -1,5 +1,6 @@
 #pragma once
 #include "data.h"
+#include "utility.h"
 void bAddDraw();
 void bAddInit();
 void titleAdd();

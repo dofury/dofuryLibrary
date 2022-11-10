@@ -46,7 +46,7 @@ void searchGenre(char genre[36])
 }
 
 
-void init()
+void bsInit()
 {
 	searchList = newList();
 	initList(searchList);
@@ -149,12 +149,12 @@ void searchGenreMessage()
 	}
 }
 
-void bSearchStart()
+void bsStart()
 {
-	init();
-	bSearchDraw();
+	bsInit();
+	bsDraw();
 	int menuSelect;
-	menuSelect = bSearchsKeyDraw();
+	menuSelect = bsKeyDraw();
 	switch (menuSelect)
 	{
 		case eTitleSearch:
@@ -181,7 +181,7 @@ void bSearchStart()
 	deleteList(searchList);
 }
 
-void bSearchDraw()
+void bsDraw()
 {
 	    system("cls");
 		printf("====================================\n");
@@ -195,12 +195,12 @@ void bSearchDraw()
 		printf("====================================\n");
 }
 
-int bSearchsKeyDraw()
+int bsKeyDraw()
 {
 	x = 5;
 	y = 1;
 	while (1) {
-		int n = blKeyControl();
+		int n = bsKeyControl();
 		switch (n) {
 		case eUp: {
 			if (y > 2)
@@ -228,4 +228,28 @@ int bSearchsKeyDraw()
 		}
 		}
 	}
+}
+
+int bsKeyControl()
+{
+	int temp;
+	temp = _getch();
+	if (temp == 224)
+	{
+		temp = _getch();
+		if (temp == 72) {
+			return eUp;
+		}
+		else if (temp == 80) {
+			return eDown;
+		}
+		else if (temp == 75)//Left
+		{
+			return eUndo;
+		}
+	}
+	else if (temp == 32) {
+		return eSubmit;
+	}
+
 }

@@ -1,5 +1,3 @@
-#include "utility.h"
-#include "data.h"
 #include "bookAdd.h"
 void bAddInit()
 {
@@ -12,14 +10,15 @@ void bAddStart()
 	authorAdd();
 	genreAdd();
 	addBook(bookList, newBook(book.title, book.author, book.genre));
-	printf("추가되었습니다! 뒤로가기: ENTER");
+	printf("====================================================\n");
+	printf("          추가되었습니다! 뒤로가기: ENTER");
 	getUserInput();
 }
 
 void bAddDraw()
 {
 	system("cls");
-	printf("----책 추가 페이지----");
+	printf("======================= 책추가 =====================\n");
 }
 void titleAdd()
 {

@@ -1,5 +1,6 @@
 #pragma once
 #include "data.h"
+#include "utility.h"
 void blInit();
 void blDraw();
 void blShow(Book* book);

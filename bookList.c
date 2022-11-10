@@ -58,7 +58,7 @@ Book inputBook()
 int blsKeyDraw(Node* present)
 {
 	system("cls");
-	printf("====================================\n");
+	printf("====================================================\n");
 	blShow(present->book);
 	blsDraw();
 	x = 5;
@@ -97,11 +97,11 @@ int blsKeyDraw(Node* present)
 void blsDraw()
 {
 	printf("   >>  1.편집\n");
-	printf("====================================\n");
+	printf("====================================================\n");
 	printf("       2.삭제\n");
-	printf("====================================\n");
+	printf("====================================================\n");
 	printf("       3.메뉴\n");
-	printf("====================================\n");
+	printf("====================================================\n");
 }
 Node* blKeyDraw()
 {
@@ -117,8 +117,8 @@ Node* blKeyDraw()
 	}
 	else
 	{
-		printf("\n        등록된 책이 없습니다!!!\n\n");
-		printf("            뒤로가기:SPACE");
+		printf("\n                등록된 책이 없습니다!!!\n\n");
+		printf("                    뒤로가기:SPACE");
 	}
 	while (1) {
 		int n = blKeyControl();
@@ -185,7 +185,7 @@ void blShow(Book* book)
 	{
 		printf("       책 이름: %s 작가: %s 장르: %s\n",
 			book->title,book->author,book->genre);
-		printf("====================================\n");
+		printf("====================================================\n");
 	}
 }
 void blShows()
@@ -201,5 +201,5 @@ void blShows()
 void blDraw()
 {
 	system("cls");
-	printf("=============== 책목록 =============\n");
+	printf("======================= 책목록 =====================\n");
 }

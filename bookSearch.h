@@ -1,5 +1,4 @@
 #pragma once
-#include "screen.h"
 #include "data.h"
 #include "utility.h"
 #include <string.h>
@@ -12,4 +11,5 @@ typedef enum _eSearchMenu
 	eSearchUndo = 7
 }eSearchMenu;
 List* searchList;
-void bSearchDraw();
+void bsDraw();
+void bsStart();
