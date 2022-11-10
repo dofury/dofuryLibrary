@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="bookAdd.c" />
     <ClCompile Include="bookList.c" />
+    <ClCompile Include="bookFile.c" />
     <ClCompile Include="bookSearch.c" />
     <ClCompile Include="bookTake.c" />
     <ClCompile Include="data.c" />
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="bookAdd.h" />
     <ClInclude Include="bookList.h" />
+    <ClInclude Include="bookFile.h" />
     <ClInclude Include="bookSearch.h" />
     <ClInclude Include="bookTake.h" />
     <ClInclude Include="data.h" />

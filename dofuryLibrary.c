@@ -7,6 +7,7 @@ void listCheck();
 int main()
 {
     int select;
+	fileLoad();
     do
     {
 		listCheck();//리스트제거시 재생성
@@ -38,6 +39,7 @@ int main()
 		}break;
 		case eMenu_Save:
 		{	
+				fileSave();
 				clear(bookList);
 				deleteList(bookList);//리스트제거
 				return 0;
