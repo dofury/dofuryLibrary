@@ -23,7 +23,7 @@ void bAddDraw()
 void titleAdd()
 {
 	gotoxy(0, 1);
-	printf("책이름(한글 18자, 영어 36자 이내): ");
+	printf("책 제목(한글 18자, 영어 36자 이내): ");
 	gets_s(book.title,36);
 }
 void authorAdd()

@@ -58,7 +58,7 @@ void searchTitleMessage()
 	Node* node;
 	Book* book;
 	system("cls");
-	printf("=================검색===============\n");
+	printf("======================= 책검색 =====================\n");
 	printf("책 제목(한글 18자, 영어 36자 이내): ");
 	gets_s(title, 36);
 	searchTitle(title);
@@ -69,9 +69,9 @@ void searchTitleMessage()
 		{
 			book = node->book;
 			node = node->next;
-			printf("====================================\n");
+			printf("====================================================\n");
 			printf("책 제목: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
-			printf("====================================\n");;
+			printf("====================================================\n");;
 		}
 		printf("검색 완료.\n\n");
 		printf("           확인:ENTER");
@@ -90,7 +90,7 @@ void searchAuthorMessage()
 	Node* node;
 	Book* book;
 	system("cls");
-	printf("=================검색===============\n");
+	printf("======================= 책검색 =====================\n");
 	printf("작가(한글 18자, 영어 36자 이내): ");
 	gets_s(author, 36);
 	searchAuthor(author);
@@ -101,9 +101,9 @@ void searchAuthorMessage()
 		{
 			book = node->book;
 			node = node->next;
-			printf("====================================\n");
+			printf("====================================================\nn");
 			printf("책 제목: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
-			printf("====================================\n");;
+			printf("====================================================\n");;
 		}
 		printf("검색 완료.\n\n");
 		printf("           확인:ENTER");
@@ -123,7 +123,7 @@ void searchGenreMessage()
 	Node* node;
 	Book* book;
 	system("cls");
-	printf("=================검색===============\n");
+	printf("======================= 책검색 =====================\n");
 	printf("장르(한글 18자, 영어 36자 이내): ");
 	gets_s(genre, 36);
 	searchGenre(genre);
@@ -134,9 +134,9 @@ void searchGenreMessage()
 		{
 			book = node->book;
 			node = node->next;
-			printf("====================================\n");
+			printf("====================================================\n");
 			printf("책 제목: %s 작가: %s 장르: %s\n", book->title, book->author, book->genre);
-			printf("====================================\n");;
+			printf("====================================================\n");;
 		}
 		printf("검색 완료.\n\n");
 		printf("           확인:ENTER");

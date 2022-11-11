@@ -13,7 +13,7 @@ void ttInit()
 }
 void ttDraw()
 {
-    printf("               BOOK\n");
+    printf("              * BOOK *\n");
     printf("====================================\n");
     printf("\n");
     printf("====================================\n");
