@@ -10,14 +10,14 @@ Node* newNode(void* book)
 	return node;
 }
 
-Book* newBook(char title[36], char author[36], char genre[36])
+Book* newBook(char title[36], char author[36], char genre[36],int take)
 {
 	Book* book = (Book*)malloc(sizeof(Book));
 
 	strcpy_s(book->title, sizeof(book->title), title);
 	strcpy_s(book->author, sizeof(book->author),author);
 	strcpy_s(book->genre, sizeof(book->genre), genre);
-	book->take = 0; //대출가능
+	book->take = take; //대출가능
 	
 	return book;
 }

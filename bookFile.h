@@ -2,7 +2,7 @@
 #include "data.h"
 #include "utility.h"
 void fileSave();
-void fileLoad();
+int fileLoad();
 FILE* bookFile;
 void booksSave(Node* node);
 void bookSave(Book* book);
@@ -10,3 +10,4 @@ char* texts;
 int textSize;
 void getText();
 void textToken();
+int takeCheck(char* text);

@@ -12,7 +12,8 @@ void fileSave()
 
 void booksSave(Node* node)
 {
-    fputs("start*/", bookFile);
+    fprintf(bookFile, "%d", bookList->count);
+    fputs("/", bookFile);
     for (int i = 0; i<bookList->count; i++)
     {
         Book* book = node->book;
@@ -20,7 +21,6 @@ void booksSave(Node* node)
 
         node = node->next;
     }
-    fputs("end*", bookFile);
 }
 void bookSave(Book* book)
 {
@@ -36,12 +36,14 @@ void bookSave(Book* book)
 }
 
 
-void fileLoad()
+int fileLoad()
 {
     bookList = newList();
     initList(bookList);
 
     bookFile = fopen("save.txt", "r");
+    if (bookFile == NULL)//예외처리
+        return 0;
     getText();
     textToken();
 
@@ -63,20 +65,25 @@ void textToken()
 {
     Book book;
     char* text;
-    text = strtok(texts, "*");
-    while(1)
+    int count = *strtok(texts, "/") - '0';
+    for(int i=0;i<count;i++)
     {
         text = strtok(NULL, "/");
-        if (strcmp(text,"end*")==0)
-            break;
         strcpy(book.title, text);
         text = strtok(NULL, "/");
         strcpy(book.author, text);
         text = strtok(NULL, "/");
         strcpy(book.genre, text);
         text = strtok(NULL, "/");
-        book.take = text - '0';
-        addBook(bookList, newBook(book.title, book.author, book.genre));
+        book.take = takeCheck(text);
+        addBook(bookList, newBook(book.title, book.author, book.genre,book.take));
     }
 
+}
+int takeCheck(char* text)
+{
+    if (strcmp(text, "0") == 0)
+        return 0;
+    else
+        return 1;
 }

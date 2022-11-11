@@ -1,4 +1,4 @@
-﻿
+﻿#include <setjmp.h>
 #include "utility.h"
 #include "screen.h"
 #include "data.h"
@@ -8,6 +8,8 @@ int main()
 {
     int select;
 	fileLoad();
+
+
     do
     {
 		listCheck();//리스트제거시 재생성
